@@ -12,10 +12,22 @@ pip install -r requirements.txt
 ## Introduction
 
 * [Data Preparation](data_preparation/data_prep.md)
-* [Front End](fe.md)
-* [ASR](asr.md)
-* [Speaker Diarization](sd.md)
-* [Evaluation](eval.md)
+* [Front End](front_end/fe.md)
+* [ASR](asr/asr.md)
+* [Speaker Diarization](sd/sd.md)
+* [Evaluation](eval/eval.md)
+
+## General steps
+1. Generate training data for fe and asr model and evaluation data for Speaker Independent task.
+2. Do speaker diarization to generate rttm which containing vad and speaker diarization information.
+3. Generate evaluation data for Speaker Dependent task with the results of step 2.
+4. Train FE and ASR model respectively.
+5. Generate the FE results of evaluation data of Speaker Independent and Speaker Dependent tasks respectively.
+6. Generate the ASR results of evaluation data of Speaker Independent and Speaker Dependent tasks respectively with the results of step 2 and 3 for No FE results.
+7. Generate the ASR results of evaluation data of Speaker Independent and Speaker Dependent tasks respectively with the results of step 5 for FE results.
+8. Generate CER results of Speaker Independent and Speaker Dependent tasks without/with FE with the results of step 6 and 7 respectively.
+
+
 
 ## Citation
 If you use this challenge dataset and baseline system in a publication, please cite the following paper:
