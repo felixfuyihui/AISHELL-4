@@ -21,10 +21,10 @@ pip install -r requirements.txt
 If you use this challenge dataset and baseline system in a publication, please cite the following paper:
 
     @article{fu2021aishell,
-              title={AISHELL-4: An Open Source Dataset for Speech Enhancement, Separation, Recognition and Speaker Diarization in Conference Scenario},
-              author={Fu, Yihui and Cheng, Luyao and Lv, Shubo and Jv, Yukai and Kong, Yuxiang and Chen, Zhuo and Hu, Yanxin and Xie, Lei and Wu, Jian and Bu, Hui and others},
-              journal={arXiv preprint arXiv:2104.03603},
-              year={2021}
+             title={AISHELL-4: An Open Source Dataset for Speech Enhancement, Separation, Recognition and Speaker Diarization in Conference Scenario},
+             author={Fu, Yihui and Cheng, Luyao and Lv, Shubo and Jv, Yukai and Kong, Yuxiang and Chen, Zhuo and Hu, Yanxin and Xie, Lei and Wu, Jian and Bu, Hui and others},
+             journal={arXiv preprint arXiv:2104.03603},
+             year={2021}
              }
     
 ## Code license 
