@@ -11,7 +11,7 @@ pip install -r requirements.txt
 ```
 ## Introduction
 
-* [Data Preparation](data_prep.md)
+* [Data Preparation](data_preparation/data_prep.md)
 * [Front End](fe.md)
 * [ASR](asr.md)
 * [Speaker Diarization](sd.md)
