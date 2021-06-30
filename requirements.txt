@@ -18,3 +18,10 @@ pre-commit==2.7.1
 yapf==0.30.0
 flake8==3.8.4
 tensorboard==2.3.0
+sklearn
+numexpr==2.7.3
+h5py==3.3.0
+onnxruntime==1.8.0
+tabulate==0.8.9
+intervaltree==3.1.0
+kaldi_io==0.9.4
