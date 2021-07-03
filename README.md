@@ -42,4 +42,3 @@ If you use this challenge dataset and baseline system in a publication, please c
 ## Code license 
 
 [Apache 2.0](./LICENSE)
-
