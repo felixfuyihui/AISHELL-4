@@ -41,7 +41,7 @@ If you use this challenge dataset and baseline system in a publication, please c
     
 ## Contributors
 
-[<img width="300" height="100" src="https://github.com/felixfuyihui/AISHELL-4/blob/master/fig_aslp.jpg"/>](https://www.baidu.com/)[<img width="300" height="100" src="https://github.com/felixfuyihui/AISHELL-4/blob/master/fig_aishell.jpg"/>](http://www.aishelltech.com/sy)
+[<img width="300" height="100" src="https://github.com/felixfuyihui/AISHELL-4/blob/master/fig_aslp.jpg"/>](http://www.nwpu-aslp.org/)[<img width="300" height="100" src="https://github.com/felixfuyihui/AISHELL-4/blob/master/fig_aishell.jpg"/>](http://www.aishelltech.com/sy)
 ## Code license 
 
 [Apache 2.0](./LICENSE)
