@@ -1,3 +1,6 @@
+# asr
+
+
 1. Please prepare the `wav.scp`, `text`, `utt2dur` for training and development set under `data/aishell_v4/train/` and `data/aishell_v4/dev/` respectively following the kaldi format.
    Note: Both training and development data contain two parts: original clean speech to simulate data and simulated noisy speech. Please combine these two parts together to train the asr model.
 
