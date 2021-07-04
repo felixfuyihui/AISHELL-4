@@ -39,6 +39,9 @@ If you use this challenge dataset and baseline system in a publication, please c
              year={2021}
              }
     
+## Contributors
+
+![image][]
 ## Code license 
 
 [Apache 2.0](./LICENSE)
