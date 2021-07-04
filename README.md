@@ -41,7 +41,7 @@ If you use this challenge dataset and baseline system in a publication, please c
     
 ## Contributors
 
-![image](https://github.com/felixfuyihui/AISHELL-4/blob/master/fig_aslp.jpg width="20" height="10")
+<img width="20" height="10" src="https://github.com/felixfuyihui/AISHELL-4/blob/master/fig_aslp.jpg"/>
 ## Code license 
 
 [Apache 2.0](./LICENSE)
