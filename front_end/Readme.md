@@ -1,3 +1,5 @@
+# front_end
+
 1. Please prepare the `mix.scp`, `spk1.scp`, `spk2.scp`, `utt2dur` for training and development set under `data/train/` and `data/dev/` respectively following the kaldi format.
 
 2. Please prepare the `mix_nospk.scp` and `mix_spk.scp` for testing data of Speaker Independent and Speaker Dependent tasks under `data/test/` respectively following the kaldi format.
