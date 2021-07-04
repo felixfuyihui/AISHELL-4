@@ -1,0 +1,76 @@
+nnet: "asr@xfmr"
+
+nnet_conf:
+  input_size: 80
+  enc_type: xfmr_rel
+  enc_kwargs:
+    att_dim: 512
+    att_dropout: 0.2
+    feedforward_dim: 1024
+    nhead: 8
+    num_layers: 8
+    pos_dropout: 0.2
+    proj_layer: conv2d
+    radius: 256
+  dec_kwargs:
+    att_dim: 512
+    att_dropout: 0.2
+    feedforward_dim: 1024
+    nhead: 8
+    num_layers: 6
+    pos_dropout: 0.2
+
+asr_transform:
+  feats: fbank-log-cmvn-aug
+  frame_len: 400
+  frame_hop: 160
+  window: "hamm"
+  round_pow_of_two: true
+  sr: 16000
+  num_mels: 80
+  norm_mean: true
+  norm_var: true
+  aug_prob: 0.5
+  aug_mask_zero: false
+  aug_freq_args: [30, 1]
+  aug_time_args: [80, 1]
+
+task: "asr@ctc_xent"
+
+task_conf:
+  lsm_factor: 0.1
+  ctc_weight: 0.2
+
+trainer_conf:
+  optimizer: "adam"
+  optimizer_kwargs:
+    lr: 1.0e-4
+    weight_decay: 1.0e-5
+  lr_scheduler: "warmup_noam_lr"
+  lr_scheduler_period: "step"
+  lr_scheduler_kwargs:
+    peak_lr: -1
+    warmup: 25000
+    transformer_dim: 512
+  no_impr: 5
+  no_impr_thres: 0
+  clip_gradient: 5
+  report_metrics: ["loss", "accu", "@ctc"]
+  stop_criterion: "accu"
+
+data_conf:
+  fmt: "am@raw"
+  loader:
+    max_dur: 30 # (s)
+    min_dur: 0.4 # (s)
+    adapt_dur: 10 # (s)
+    max_token_num: 400
+    adapt_token_num: 150
+  train:
+    wav_scp: "data/aishell_v4/train/wav.scp"
+    utt2dur: "data/aishell_v4/train/utt2dur"
+    text: "data/aishell_v4/train/text"
+  valid:
+    wav_scp: "data/aishell_v4/dev/wav.scp"
+    utt2dur: "data/aishell_v4/dev/utt2dur"
+    text: "data/aishell_v4/dev/text"
