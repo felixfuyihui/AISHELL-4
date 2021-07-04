@@ -1,7 +1,7 @@
 # AISHELL-4
 
 
-This project is associated with the currently released AIHSHELL-4 dataset for speech Enhancement, separation, recognition and speaker Diarization in Conference Scenario. The project, served as baseline, is divided into five parts, named data_preparation, front_end, asr, sd, for Speaker Independent and Speaker Dependent tasks respectively. The goal is to simplify the training and evaluation procedure and make it easy and flexible for researchers to carry out experiments and verify neural network based methods.
+This project is associated with the currently released AIHSHELL-4 dataset for speech Enhancement, separation, recognition and speaker Diarization in Conference Scenario. The project, served as baseline, is divided into five parts, named data_preparation, front_end, asr, sd, for Speaker Independent task, which only evaluate the ability of front end and asr models, and Speaker Dependent task, which evaluate the joint ability of speaker diarization, front end and asr models, respectively. The goal is to simplify the training and evaluation procedure and make it easy and flexible for researchers to carry out experiments and verify neural network based methods.
 
 ## Setup
 
