@@ -1,7 +1,7 @@
 # AISHELL-4
 
 
-This project is associated with the currently released AIHSHELL-4 dataset for speech Enhancement, separation, recognition and speaker Diarization in Conference Scenario. The project, served as baseline, is divided into five parts, named data_preparation, front_end, asr, sd, respectively. The goal is to simplify the training and evaluation procedure and make it easy and flexible for researchers to carry out experiments and verify neural network based methods.
+This project is associated with the currently released AIHSHELL-4 dataset for speech Enhancement, separation, recognition and speaker Diarization in Conference Scenario. The project, served as baseline, is divided into five parts, named data_preparation, front_end, asr, sd, for Speaker Independent and Speaker Dependent tasks respectively. The goal is to simplify the training and evaluation procedure and make it easy and flexible for researchers to carry out experiments and verify neural network based methods.
 
 ## Setup
 
@@ -11,11 +11,11 @@ pip install -r requirements.txt
 ```
 ## Introduction
 
-* [Data Preparation](data_preparation/data_prep.md)
-* [Front End](front_end/fe.md)
-* [ASR](asr/asr.md)
-* [Speaker Diarization](sd/sd.md)
-* [Evaluation](eval/eval.md)
+* [Data Preparation](data_preparation): Prepare the training and evaluation data.
+* [Front End](front_end): Train and evaluate the front end model. 
+* [ASR](asr): Train and evaluate the asr model. 
+* [Speaker Diarization](sd): Generate the speaker diarization results. 
+* [Evaluation](eval): Evaluate the results of models above and generate the CERs for Speaker Independent and Speaker Dependent tasks respectively.
 
 ## General steps
 1. Generate training data for fe and asr model and evaluation data for Speaker Independent task.
@@ -35,10 +35,12 @@ If you use this challenge dataset and baseline system in a publication, please c
 
     @article{fu2021aishell,
              title={AISHELL-4: An Open Source Dataset for Speech Enhancement, Separation, Recognition and Speaker Diarization in Conference Scenario},
-             author={Fu, Yihui and Cheng, Luyao and Lv, Shubo and Jv, Yukai and Kong, Yuxiang and Chen, Zhuo and Hu, Yanxin and Xie, Lei and Wu, Jian and Bu, Hui and others},
+             author={Fu, Yihui and Cheng, Luyao and Lv, Shubo and Jv, Yukai and Kong, Yuxiang and Chen, Zhuo and Hu, Yanxin and Xie, Lei and Wu, Jian and Bu, Hui and Xin, Xu and Jun, Du and Jingdong Chen},
              journal={arXiv preprint arXiv:2104.03603},
-             year={2021}
+             year={2021},
+             conference={Interspeech2021, Brno, Czech Republic, Aug 30 - Sept 3, 2021}
              }
+The paper is available at https://arxiv.org/abs/2104.03603
     
 ## Contributors
 
