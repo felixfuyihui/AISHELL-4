@@ -1,13 +1,13 @@
 # data_preparation
 0. Download datasets
-```bash
+
 Librispeech: http://www.openslr.org/12/
 MUSAN: http://www.openslr.org/17/
 Audioset: https://github.com/marc-moreaux/audioset_raw
 AISHELL-1: http://www.openslr.org/33/
 aidatatang_200zh: http://www.openslr.org/62/
 Primewords: http://www.openslr.org/47/
-```
+
 
 
 1. Simulate RIRs
