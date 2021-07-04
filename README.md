@@ -1,7 +1,7 @@
 # AISHELL-4
 
 
-The project is divided into five parts, named data_preparation, front_end, asr, sd, respectively. The goal is to simplify the training and evaluation procedure and make it easy and flexible for researchers to do experiments and verify neural network based methods.
+This project is associated with the currently released AIHSHELL-4 dataset for speech Enhancement, separation, recognition and speaker Diarization in Conference Scenario. The project, served as baseline, is divided into five parts, named data_preparation, front_end, asr, sd, respectively. The goal is to simplify the training and evaluation procedure and make it easy and flexible for researchers to carry out experiments and verify neural network based methods.
 
 ## Setup
 
@@ -19,13 +19,14 @@ pip install -r requirements.txt
 
 ## General steps
 1. Generate training data for fe and asr model and evaluation data for Speaker Independent task.
-2. Do speaker diarization to generate rttm which containing vad and speaker diarization information.
-3. Generate evaluation data for Speaker Dependent task with the results of step 2.
+2. Do speaker diarization to generate rttm which includes vad and speaker diarization information.
+3. Generate evaluation data for Speaker Dependent task with the results from step 2.
 4. Train FE and ASR model respectively.
-5. Generate the FE results of evaluation data of Speaker Independent and Speaker Dependent tasks respectively.
-6. Generate the ASR results of evaluation data of Speaker Independent and Speaker Dependent tasks respectively with the results of step 2 and 3 for No FE results.
-7. Generate the ASR results of evaluation data of Speaker Independent and Speaker Dependent tasks respectively with the results of step 5 for FE results.
-8. Generate CER results of Speaker Independent and Speaker Dependent tasks without/with FE with the results of step 6 and 7 respectively.
+5. Generate the FE results of evaluation data for Speaker Independent and Speaker Dependent tasks respectively.
+6. Generate the ASR results of evaluation data for Speaker Independent and Speaker Dependent tasks respectively with the results from step 2 and 3 for No FE results.
+7. Generate the ASR results of evaluation data for Speaker Independent and Speaker Dependent tasks respectively with the results from step 5 for FE results.
+8. Generate CER results for Speaker Independent and Speaker Dependent tasks of (No) FE with the results from step 6 and 7 respectively.
+
 
 
 
