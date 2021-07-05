@@ -1,7 +1,6 @@
 # AISHELL-4
 
-
-This project is associated with the currently released AIHSHELL-4 dataset for speech Enhancement, separation, recognition and speaker Diarization in Conference Scenario. The project, served as baseline, is divided into five parts, named data_preparation, front_end, asr, sd, for Speaker Independent task, which only evaluate the ability of front end and asr models, and Speaker Dependent task, which evaluate the joint ability of speaker diarization, front end and asr models, respectively. The goal is to simplify the training and evaluation procedure and make it easy and flexible for researchers to carry out experiments and verify neural network based methods.
+This project is associated with the recently-released AIHSHELL-4 dataset for speech enhancement, separation, recognition and speaker diarization in conference scenario. The project, served as baseline, is divided into five parts, named data_preparation, front_end, asr, sd. The Speaker Independent (SI) task only evaluates the ability of front end (FE) and ASR models, while the Speaker Dependent (SD) task evaluates the joint ability of speaker diarization, front end and ASR models. The goal of this project is to simplify the training and evaluation procedure and make it easy and flexible for researchers to carry out experiments and verify neural network based methods.
 
 ## Setup
 
@@ -36,7 +35,6 @@ If you use this challenge dataset and baseline system in a publication, please c
     @article{fu2021aishell,
              title={AISHELL-4: An Open Source Dataset for Speech Enhancement, Separation, Recognition and Speaker Diarization in Conference Scenario},
              author={Fu, Yihui and Cheng, Luyao and Lv, Shubo and Jv, Yukai and Kong, Yuxiang and Chen, Zhuo and Hu, Yanxin and Xie, Lei and Wu, Jian and Bu, Hui and Xin, Xu and Jun, Du and Jingdong Chen},
-             journal={arXiv preprint arXiv:2104.03603},
              year={2021},
              conference={Interspeech2021, Brno, Czech Republic, Aug 30 - Sept 3, 2021}
              }
