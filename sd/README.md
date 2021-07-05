@@ -25,6 +25,6 @@ You need download the model from the [path](https://data-tx.oss-cn-hangzhou.aliy
 
 
 ## Reference
-[kaldi-sad-model](http://kaldi-asr.org/models/m12)
-[VBx](https://github.com/BUTSpeechFIT/VBx)
+1. [kaldi-sad-model](http://kaldi-asr.org/models/m12)
+2. [VBx](https://github.com/BUTSpeechFIT/VBx)
 
