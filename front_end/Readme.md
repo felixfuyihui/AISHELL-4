@@ -14,4 +14,4 @@
 ./decode.sh data/test/wav_nospk.scp
 ./decode.sh data/test/wav_spk.scp
 ```
-You can also use our pretrained model to generate the fe results directly. Please download the pretrain the model from https://data-tx.oss-cn-hangzhou.aliyuncs.com/AISHELL-4-Code/best.pt and save at `exp/realmask/`.
+You can also use our pretrained model to generate the fe results directly. Please download the pretrain the model from [download path](https://data-tx.oss-cn-hangzhou.aliyuncs.com/AISHELL-4-Code/best.pt) and save at `exp/realmask/`.
