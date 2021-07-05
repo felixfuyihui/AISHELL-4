@@ -18,4 +18,4 @@
 ./decode.sh data/test/wav_nospk_fe.scp wav_nospk_fe
 ./decode.sh data/test/wav_spk_fe.scp wav_spk_fe
 ```
-You can also use our pretrained model to generate the asr results directly. Please download the pretrain the model from https://data-tx.oss-cn-hangzhou.aliyuncs.com/AISHELL-4-Code/best.pt.tar and save at `exp/aishell_v4/asr/`.
+You can also use our pretrained model to generate the asr results directly. Please download the pretrain the model from [downpath](https://data-tx.oss-cn-hangzhou.aliyuncs.com/AISHELL-4-Code/best.pt.tar) and save at `exp/aishell_v4/asr/`.
