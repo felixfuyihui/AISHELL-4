@@ -40,7 +40,7 @@ If you use this challenge dataset and baseline system in a publication, please c
              }
 The paper is available at https://arxiv.org/abs/2104.03603
 
-Dataset is available at http://www.openslr.org/111/ and https://www.myairbridge.com/en/#!/folder/0yo53qiVSCJ4dDlds1r8Mo6fIATsIRnH
+Dataset is available at http://www.openslr.org/111/ and http://www.aishelltech.com/aishell_4
     
 ## Contributors
 
