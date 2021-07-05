@@ -1,6 +1,6 @@
 # AISHELL-4
 
-This project is associated with the recently-released AIHSHELL-4 dataset for speech enhancement, separation, recognition and speaker diarization in conference scenario. The project, served as baseline, is divided into five parts, named **data_preparation**, **front_end**, **asr** and **sd**. The Speaker Independent (SI) task only evaluates the ability of front end (FE) and ASR models, while the Speaker Dependent (SD) task evaluates the joint ability of speaker diarization, front end and ASR models. The goal of this project is to simplify the training and evaluation procedure and make it easy and flexible for researchers to carry out experiments and verify neural network based methods.
+This project is associated with the recently-released AIHSHELL-4 dataset for speech enhancement, separation, recognition and speaker diarization in conference scenario. The project, served as baseline, is divided into five parts, named ***data_preparation***, ***front_end***, ***asr*** and ***sd***. The Speaker Independent (SI) task only evaluates the ability of front end (FE) and ASR models, while the Speaker Dependent (SD) task evaluates the joint ability of speaker diarization, front end and ASR models. The goal of this project is to simplify the training and evaluation procedure and make it easy and flexible for researchers to carry out experiments and verify neural network based methods.
 
 ## Setup
 
@@ -39,6 +39,7 @@ If you use this challenge dataset and baseline system in a publication, please c
              conference={Interspeech2021, Brno, Czech Republic, Aug 30 - Sept 3, 2021}
              }
 The paper is available at https://arxiv.org/abs/2104.03603
+
 Dataset is available at http://www.openslr.org/111/ and https://www.myairbridge.com/en/#!/folder/0yo53qiVSCJ4dDlds1r8Mo6fIATsIRnH
     
 ## Contributors
