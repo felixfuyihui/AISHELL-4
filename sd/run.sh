@@ -2,7 +2,7 @@
 . cmd.sh
 # cur_dir/data/aishell4_test is the main work folder
 
-aishell4_test_path=/home/environment/yhfu/aishell4_release/test/
+aishell4_test_path= # add your own path
 work_dir=./data/aishell4_test
 sad_dir=$work_dir/sad_part
 sad_work_dir=$sad_dir/exp
