@@ -17,6 +17,12 @@ In speaker diarization process, we will only use the first channel as the SAD mo
 
 
 
+## Model Download
+
+You need download the model from the [path](https://data-tx.oss-cn-hangzhou.aliyuncs.com/AISHELL-4-Code/sd-part.zip), you should mv the `exp` to the `sd/` and the `ResNet101_16kHz` to the `VBx/models`.
+
+
+
 
 ## Reference
 [kaldi-sad-model](http://kaldi-asr.org/models/m12)
