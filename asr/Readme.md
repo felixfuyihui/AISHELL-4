@@ -1,8 +1,7 @@
 # asr
 
 
-1. Please prepare the `wav.scp`, `text`, `utt2dur` for training and development set under `data/aishell_v4/train/` and `data/aishell_v4/dev/` respectively following the kaldi format.
-   Note: Both training and development data contain two parts: original clean speech to simulate data and simulated noisy speech. Please combine these two parts together to train the asr model.
+1. Please prepare the `wav.scp`, `text`, `utt2dur` for training and development sets under `data/aishell_v4/train/` and `data/aishell_v4/dev/` respectively following the kaldi format.
 
 2. Please prepare the `wav_nospk_nofe.scp`, `wav_spk_nofe.scp`, `wav_nospk_fe.scp` and `wav_spk_fe.scp` for testing data of Speaker Independent and Speaker Dependent tasks under `data/aishell_v4/test/` respectively following the kaldi format.
 
