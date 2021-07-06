@@ -11,6 +11,7 @@ import random
 import time
 import librosa
 import argparse
+import textgrid
 
 def get_line_context(file_path, line_number):
     return linecache.getline(file_path, line_number).strip()
@@ -90,7 +91,7 @@ def add_reverb(cln_wav, rir_wav):
     rir_wav = np.array(rir_wav)
     rir_wav = rir_wav[:, np.newaxis]
     wav_tgt = np.zeros([cln_wav.shape[0]+7999, rir_wav.shape[1]])
-    for i in range(rir_wav.shape[1]):
+    for i in range(1):
         wav_tgt[:, i] = ss.oaconvolve(cln_wav, rir_wav[:,i]/np.max(np.abs(rir_wav[:,i])))
     return wav_tgt
 
@@ -137,11 +138,16 @@ def add_noise(clean, noise, rir, snr):
 
 
 def run(args):
-    wavlist = args.wav_list
+    wavlist = args.aishell1_wav_list
     noiselist = args.noise_list
     rirlist = args.rir_list
     output_dir = args.output_dir
     datamode = args.mode
+
+    output_text = output_dir+'/'+datamode+'/text'
+    output_text = open(output_text, 'w')
+    output_utt2dur = output_dir+'/'+datamode+'/utt2dur'
+    output_utt2dur = open(output_utt2dur, 'w')
     if not os.path.exists(output_dir):
         os.mkdir(output_dir)
     if not os.path.exists(output_dir+'/'+datamode+'/wav'):
@@ -162,13 +168,91 @@ def run(args):
         outname = outname.split('.wav')[0]
         out, spk1, spk2 = mixwav(wav_path, noise_path, rir_path, snr)
         sf.write(output_dir+'/'+datamode+'/wav/'+outname+'_noisy.wav', out[:,0], 16000)
+        text = get_line_context(args.text, i+1)
+        text = text.split(' ')[1]
+        output_text.write(outname+'_noisy '+text+'\n')
+        output_utt2dur.write(outname+'_noisy '+str(out[:,0].shape[0]/16000)+'\n')
+        output_text.flush()
+        output_utt2dur.flush()
+
+    if args.mode == 'train':
+        wav_list = args.aishell4_wav_list
+        textgrid_list = args.textgrid_list
+        for textgrid_num in range(6, len(open(textgrid_list,'r').readlines())):
+            grid = get_line_context(textgrid_list, textgrid_num + 1) 
+            tgridobj = textgrid.TextGrid()
+            tgridobj.read(grid)
+            n_spk = len(tgridobj)
+            conferencetime = tgridobj.maxTime
+            conferencetime = float(conferencetime)
+            conferencetime = '%.2f' % conferencetime
+            conferencetime = float(conferencetime)
+            timetable =  np.zeros([n_spk, int(conferencetime*100)])
+            segmenttable = np.zeros([n_spk, int(conferencetime*100)])
+            content = []
+            for spk in range(n_spk):
+                n_iterval = len(tgridobj[spk])
+                content.append([])
+                segment_index = 0
+                for j in range(n_iterval):
+                    iterval = tgridobj[spk][j]
+                    if iterval.mark != '' and iterval.mark != ' ' and iterval.mark != '<%>' and iterval.mark != '<$>':
+                        minTime = iterval.minTime
+                        maxTime = iterval.maxTime
+                        minTime = float(minTime)
+                        maxTime = float(maxTime)
+                        minTime = '%.2f' % minTime
+                        maxTime = '%.2f' % maxTime
+                        minTime = float(minTime)
+                        maxTime = float(maxTime)
+                        timetable[spk, int(minTime*100):int(maxTime*100)] = 1
+                        segmenttable[spk, int(minTime*100):int(maxTime*100)] = segment_index
+                        segment_index = segment_index + 1
+                        content[spk].append(iterval.mark)
+            flagcut = 0
+            positionstart = []
+            positionend = []
+            for i in range(timetable.shape[1]-1):
+                if timetable[:, i].sum() == 0 and timetable[:, i+1].sum() ==1:
+                    positionstart.append(i)
+                elif timetable[:, i].sum() ==1 and timetable[:, i+1].sum() ==0:
+                    positionend.append(i)
+            spkid = []
+            if len(positionstart) != len(positionend):
+            	minlen = min(len(positionstart), len(positionend))
+            	positionstart, positionend = positionstart[:minlen], positionend[:minlen]
+            for i in range(len(positionstart)):
+            	if np.sum(timetable[:, positionstart[i]:positionend[i]]) != positionend[i]-positionstart[i]-1:
+            		positionstart[i] = -1
+            		positionend[i] = -1
+            	else:
+            		spkid.append(np.argmax(timetable[:, positionstart[i]+1]))
+
+            wavpath = get_line_context(wav_list, textgrid_num + 1)
+            wavid = wavpath.split('/')[-1]
+            wavid = wavid.split('.wav')[0]
+            y, fs = sf.read(wavpath)
+            spkid_index = 0
+            for i in range(len(positionstart)):
+                if positionstart[i] != -1:
+                    wavcut = y[positionstart[i]*160:positionend[i]*160]
+                    sf.write(output_dir+'/'+datamode+'/wav/'+wavid+'-'+str(positionstart[i]).rjust(6,'0')+'-'+str(positionend[i]).rjust(6,'0')+'.wav',wavcut,fs)
+
+                    spkid_ = spkid[spkid_index]
+                    content_index = int(segmenttable[spkid_, positionstart[i]+1])
+                    content_ = content[spkid_][content_index]
+                    output_text.write(wavid+'-'+str(positionstart[i]).rjust(6,'0')+'-'+str(positionend[i]).rjust(6,'0')+' '+content_+'\n')
+                    output_utt2dur.write(wavid+'-'+str(positionstart[i]).rjust(6,'0')+'-'+str(positionend[i]).rjust(6,'0')+' '+str(wavcut.shape[0]/16000)+'\n')
+                    output_text.flush()
+                    output_utt2dur.flush()
+                    spkid_index = spkid_index + 1
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
-    parser.add_argument("--wav_list",
+    parser.add_argument("--aishell1_wav_list",
                         type=str,
-                        help="wav_list",
-                        default="rawwav_list/train/aishell1_tr.txt")
+                        help="aishell1_wav_list",
+                        default="rawwav_list/train/aishell1_dev.txt")
     parser.add_argument("--noise_list",
                         type=str,
                         help="noise_list",
@@ -177,6 +261,10 @@ if __name__ == '__main__':
                         type=str,
                         help="rir_list",
                         default="rawwav_list/train/rir_2-8s_1-5m_aishell4_tr.txt")
+    parser.add_argument("--text",
+                        type=str,
+                        help="text",
+                        default="rawwav_list/train/text_dev")
     parser.add_argument("--output_dir",
                         type=str,
                         help="output_dir for data",
@@ -185,5 +273,14 @@ if __name__ == '__main__':
                         type=str,
                         help="train or dev",
                         default="train")
+    parser.add_argument("--aishell4_wav_list",
+                        type=str,
+                        help="aishell4_wav_list to generate training data of real-recorded aishell-4 data",
+                        default="rawwav_list/train/aishell4_eval.txt")
+    parser.add_argument("--textgrid_list",
+                        type=str,
+                        help="textgrid_list",
+                        default="rawwav_list/train/aishell4_textgrid.txt")
+
     args = parser.parse_args()
     run(args)
