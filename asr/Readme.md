@@ -1,3 +1,6 @@
+# asr
+
+
 1. Please prepare the `wav.scp`, `text`, `utt2dur` for training and development set under `data/aishell_v4/train/` and `data/aishell_v4/dev/` respectively following the kaldi format.
    Note: Both training and development data contain two parts: original clean speech to simulate data and simulated noisy speech. Please combine these two parts together to train the asr model.
 
@@ -15,4 +18,4 @@
 ./decode.sh data/test/wav_nospk_fe.scp wav_nospk_fe
 ./decode.sh data/test/wav_spk_fe.scp wav_spk_fe
 ```
-You can also use our pretrained model to generate the asr results directly. Please download the pretrain the model from xxx and save at `exp/aishell_v4/asr/`.
+You can also use our pretrained model to generate the asr results directly. Please download the pretrain the model from [download path](https://data-tx.oss-cn-hangzhou.aliyuncs.com/AISHELL-4-Code/best.pt.tar) and save at `exp/aishell_v4/asr/`.
