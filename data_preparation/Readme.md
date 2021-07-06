@@ -35,8 +35,11 @@ python generate_fe_trainingdata.py --spk1_list path/to/wavlist/of/speaker1 --spk
 
 4. Prepare the training data of asr model:
 ```bash
-python generate_asr_trainingdata.py --wav_list path/to/wavlist/of/cleanspeech --noise_list path/to/wavlist/of/noise --rir_list path/to/wavlist/of/rir --output_dir path/to/output/dir --mode train or dev
+python generate_asr_trainingdata.py --wav_list path/to/wavlist/of/cleanspeech --noise_list path/to/wavlist/of/noise --rir_list path/to/wavlist/of/rir --output_dir path/to/output/dir --mode train or dev --aishell4_wav_list path/to/wavlist/of/aishell-4/training/data --textgrid_list path/to/textgrid/list/of/aishell-4/training/data
 ```
+Please note that the training data of asr model consists of three parts: original cleanspeech data (consists of aishell-1, aidatatang_200zh and primewords), simulated data and processed aishell-4 training data. This script aims to generate simulated data from cleanspeech and processed aishell-4 data (select non-overlaped segments from aishell-4 data). Thus if the mode is set as `train`, two parts of data will be generated. The development data only consists of two parts: original cleanspeech data and simulated data. Thus if the mode is set as `dev`, `aishell4_wav_list` and `textgrid_list` will be invalidated.
+
+Further attention please, 
 
 5. Prepare the evaluation data of Speaker Independent task:
 ```bash
