@@ -1,17 +1,12 @@
 # data_preparation
 0. Download datasets
 
-Librispeech: http://www.openslr.org/12/
-
-MUSAN: http://www.openslr.org/17/
-
-Audioset: https://github.com/marc-moreaux/audioset_raw
-
-AISHELL-1: http://www.openslr.org/33/
-
-aidatatang_200zh: http://www.openslr.org/62/
-
-Primewords: http://www.openslr.org/47/
+[Librispeech](http://www.openslr.org/12/)
+[MUSAN](http://www.openslr.org/17/)
+[Audioset](https://github.com/marc-moreaux/audioset_raw)
+[AISHELL-1](http://www.openslr.org/33/)
+[aidatatang_200zh](http://www.openslr.org/62/)
+[Primewords](http://www.openslr.org/47/)
 
 
 
@@ -20,7 +15,7 @@ Primewords: http://www.openslr.org/47/
 export LD_LIBRARY_PATH=/path/to/data_preparation/:$LD_LIBRARY_PATH
 python generate_rir_trainingdata.py --output_dir path/to/output/path
 ```
-Please make sure that your Python version is higher than 3.6. If you use real recorded RIR, this step is not required. Pyrirgen comes from https://github.com/phecda-xu/RIR-Generator
+Please make sure that your Python version is higher than 3.6. If you use real recorded RIR, this step is not required. [Pyrirgen](https://github.com/phecda-xu/RIR-Generator) if used to generate RIRs.
 
 2. Simulate isotropic noise
 
