@@ -34,7 +34,7 @@ python generate_asr_trainingdata.py --wav_list path/to/wavlist/of/cleanspeech --
 ```
 Please note that the training data of asr model consists of three parts: original cleanspeech data (consists of aishell-1, aidatatang_200zh and primewords), simulated data and processed aishell-4 training data. This script aims to generate simulated data from cleanspeech and processed aishell-4 data (select non-overlaped segments from aishell-4 data). Thus if the mode is set as `train`, two parts of data will be generated. The development data only consists of two parts: original cleanspeech data and simulated data. Thus if the mode is set as `dev`, `aishell4_wav_list` and `textgrid_list` will be invalidated. After generation, please combine the original cleanspeech data together with generated data, as well as their coresponding information (`wav.scp`, `utt2dur`, `text`).
 
-Further attention please, delete the non-lexical information in `text` and do tokenizer after data generation.
+Further attention please, delete the non-lexical information in `text` and do tokenizer after data generation. You can do `:%s/[^\u4e00-\u9fa5]//g` and `:%s/\([\u4e00-\u9fa5]\)/\1 /g` in `vim`.
 
 5. Prepare the evaluation data of Speaker Independent task:
 ```bash
