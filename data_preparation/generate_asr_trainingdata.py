@@ -178,7 +178,7 @@ def run(args):
     if args.mode == 'train':
         wav_list = args.aishell4_wav_list
         textgrid_list = args.textgrid_list
-        for textgrid_num in range(6, len(open(textgrid_list,'r').readlines())):
+        for textgrid_num in range(len(open(textgrid_list,'r').readlines())):
             grid = get_line_context(textgrid_list, textgrid_num + 1) 
             tgridobj = textgrid.TextGrid()
             tgridobj.read(grid)
