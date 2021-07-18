@@ -168,7 +168,7 @@ def run(args):
         outname = outname.split('.wav')[0]
         out, spk1, spk2 = mixwav(wav_path, noise_path, rir_path, snr)
         sf.write(output_dir+'/'+datamode+'/wav/'+outname+'_noisy.wav', out[:,0], 16000)
-        text = get_line_context(args.text, i+1)
+        text = get_line_context(args.text, wavidx+1)
         text = text.split(' ')[1]
         output_text.write(outname+'_noisy '+text+'\n')
         output_utt2dur.write(outname+'_noisy '+str(out[:,0].shape[0]/16000)+'\n')
