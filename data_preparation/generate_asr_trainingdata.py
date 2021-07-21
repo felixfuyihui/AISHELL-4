@@ -156,7 +156,7 @@ def run(args):
 
     for i in range(0, len(open(wavlist,'r').readlines())):
         random.seed(time.clock())
-        wavidx = random.randint(0, len(open(wavlist,'r').readlines())-1)
+        wavidx = i #random.randint(0, len(open(wavlist,'r').readlines())-1)
         noiseidx = random.randint(0, len(open(noiselist,'r').readlines())-1)
         riridx = random.randint(0, len(open(rirlist,'r').readlines())-1)
         wav_path = get_line_context(wavlist, wavidx+1)
